@@ -1,13 +1,12 @@
 import React from 'react'
 import {useState} from 'react'
-import {toast} from 'react-toastify'
 import {FaSignInAlt} from'react-icons/fa'
+
 
 function Login() {
  const [formData, setFormData] = useState({
-  
-  email: '',
-  password: '',
+   email: '',
+   password: '',
   
  })
   const { email, password} = formData
