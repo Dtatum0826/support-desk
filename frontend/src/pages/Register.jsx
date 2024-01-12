@@ -5,6 +5,7 @@ import {toast} from 'react-toastify'
 import {FaUser} from'react-icons/fa'
 import { useSelector, useDispatch,  } from 'react-redux'
 import {register, reset} from '../features/auth/authSlice'
+import Spinner from '../components/Spinner'
 
 function Register() {
  const [formData, setFormData] = useState({
@@ -32,6 +33,8 @@ function Register() {
     }
     dispatch(reset())
   },[isError, isSuccess,user,message, navigate, dispatch])
+  
+  
   const onChange = (e) =>{
     setFormData((prevState) => ({
       ...prevState,
@@ -51,6 +54,10 @@ function Register() {
       }
       dispatch(register(userData))
     }
+  }
+
+  if(isLoading){
+    return <Spinner/>
   }
   return (
     <>
